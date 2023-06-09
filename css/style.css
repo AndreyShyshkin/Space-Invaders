@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    height: 100%;
+    color: white;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+html {
+    background: radial-gradient(ellipse, #1b2735 0%, #090a0f 100%);
+}
+
+.startScreen{
+    margin: 100px 600px;
+}
+
+.startScreen h1{
+    text-align: center;
+    font-size: 54px;
+}
+
+.startScreen button{
+    margin: 0 auto;
+    background-color: #ffffff00;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 60px;
+}
+
+.endGame{
+    margin: 100px 600px;
+    color: white;
+}
+
+.endGame button{
+    margin: 0 auto;
+    background-color: #ffffff00;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 60px;
+}
+
+#app {
+    min-height: 100%;
+    position: relative;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    
+}
+
+#app img {
+    max-width: 150px;
+    display: inline-block;
+    max-height: 150px;
+    transition: 0.2s;
+    margin: 0 auto;
+}
+
+#player1{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 60px;
+    left: calc(50% - 75px);
+    transition: 0.2s;
+    display: flex;
+}
+
+.enemy{
+    width: 150px;
+    height: 150px;
+    background-image: url("../images/enemy.png");
+    background-size: contain;
+    position: absolute;
+}
+
+.asteroid{
+    width: 100px;
+    height: 65px;
+    position: absolute;   
+}
+.asteroid img{
+    width: 100px;
+    height: 65px;
+    transition: 0.2s;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.enemy-boom{
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: calc(50% - 75px); 
+    background-image: url("../images/boom.gif");
+}
+
+.bullet{
+    background-image: url("../images/bullet.png");
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    position: absolute ;
+    transition: 0.2s;
+}
