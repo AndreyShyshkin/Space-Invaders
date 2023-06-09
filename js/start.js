@@ -23,7 +23,7 @@ $(document).ready(function() {
 });
 
 $(".start").on("click", function(){
-    if(selectedLevel === null && selectedCosmolet === null){
+    if(selectedLevel === null || selectedCosmolet === null){
         alert("Выберите уровень и комплеель");
     }else {
         startGame();
