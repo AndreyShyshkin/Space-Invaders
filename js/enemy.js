@@ -20,7 +20,7 @@ function createEnemy() {
   let enemy = $('<div class="enemy"></div>');
   enemy.css('left', positionLeft + 'px');
   enemy.css('top', '-150px');
-  enemy.css('background-image', 'url(../images/enemy' + enemySkinRand + '.png)');
+  enemy.css('background-image', 'url(images/enemy' + enemySkinRand + '.png)');
   $("#app").append(enemy);
   moveEnemy(enemy);
 }
