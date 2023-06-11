@@ -4,7 +4,7 @@ let soundVolume = 0.5;
 
 $(document).ready(function() {
     if ($("#bg-audio")[0].paused){
-        $("#soundMusicImg").attr("src", "./images/sound off.png");
+        $("#soundMusicImg").attr("src", "images/sound off.png");
     }
 })
 
