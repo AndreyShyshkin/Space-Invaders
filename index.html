@@ -8,8 +8,6 @@
 </head>
 <body>
     <audio src="./audio/Space Echo.mp3" autoplay loop id="bg-audio"></audio>
-    <audio src="./audio/boom.wav" id="audio-boom"></audio>
-    <audio src="./audio/shot.wav" id="audio-shot"></audio>
 
     <div id='stars'></div>
     <div id='stars2'></div>
@@ -17,14 +15,17 @@
 
     <div id="app">
 
-    <div style="display: flex;"><button class="sound soundMusic"><img src="./images/sound on.png" alt="soundMusic" id="soundMusicImg"></button><h3> Sound music</h3><br></div>
-    <div style="display: flex;"><button class="sound soundEffect"><img src="./images/sound on.png" alt="soundEffect" id="soundEffectImg"></button><h3> Sound effect</h3></div>
+    <div style="display: flex;"><button class="sound soundMusic"><img src="/images/sound on.png" alt="soundMusic" id="soundMusicImg"></button><h3> Sound music</h3><br></div>
+    <div style="display: flex;"><button class="sound soundEffect"><img src="/images/sound on.png" alt="soundEffect" id="soundEffectImg"></button><h3> Sound effect</h3></div>
 
     <div class="live">
         <img src="./images/heart.png" class="liveImg liveImg1" alt="vive">
         <img src="./images/heart.png" class="liveImg liveImg2" alt="vive">
         <img src="./images/heart.png" class="liveImg liveImg3" alt="vive">
     </div>
+
+    <div class="scoreDiv">Score: <span class="score">0</span></div>
+    <div class="bonus"></div>
 
     <div class="startScreen">
         <h1>Space</h1>
@@ -58,6 +59,6 @@
     <script src="./js/enemy.js"></script>
     <script src="./js/asteroid.js"></script>
     <script src="./js/planet.js"></script>
-       
+    <script src="./js/bonus.js"></script>
 </body>
 </html>

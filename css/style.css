@@ -35,6 +35,45 @@ html {
     height: 50px;
 }
 
+.scoreDiv{
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    top: 50px;
+    left: calc(50% - 50px);
+}
+.bonus{
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 50px);
+}
+
+.boomAll{
+    width: 100px;
+    height: 100px;
+    position: absolute;   
+}
+
+.BoomAllimg{
+    width: 100px;
+    height: 100px;
+    transition: 0.2s;
+}
+
+.heal{
+    width: 100px;
+    height: 100px;
+    position: absolute;   
+}
+
+.Healimg{
+    width: 100px;
+    height: 100px;
+    transition: 0.2s;
+}
+
 .startScreen{
     margin: 100px 600px;
 }
@@ -88,7 +127,7 @@ html {
 
 #player1{
     width: 150px;
-    height: 150px;
+    max-height: 150px;
     position: absolute;
     bottom: 60px;
     left: calc(50% - 75px);
@@ -99,7 +138,7 @@ html {
 .enemy{
     width: 150px;
     height: 150px;
-    background-image: url("../images/enemy.png");
+    background-image: url("../images/enemy1.png");
     background-size: contain;
     position: absolute;
 }
@@ -133,6 +172,7 @@ html {
     top: 60px;
     left: calc(50% - 75px); 
     background-image: url("../images/boom.gif");
+    background-repeat: no-repeat;
 }
 
 .bullet{

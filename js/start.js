@@ -1,10 +1,12 @@
 let selectedLevel = null;
 let selectedCosmolet = null;
 let hpPlayer = 0;
+let score = 0;
+let hp = 0;
+let speed = 0;
+let speedPlus = 0;
 
 $(document).ready(function() {
-
-
 
     $('input[name="level"]').change(function() {
       selectedLevel = $('input[name="level"]:checked').index('input[name="level"]');;
@@ -39,6 +41,7 @@ function startGame(){
     $(".startScreen").css("display", "none");
     $("#player1").css("display", "flex");
     hpPlayer = 300;
+    speedPlus = 0;
 
     hpPlayerLive()
     positionStart();
@@ -47,6 +50,9 @@ function startGame(){
         createEnemy();
 
         createAsteroid()
+
+        score = 0;
+        $(".score").html(score);
     }
 }
 

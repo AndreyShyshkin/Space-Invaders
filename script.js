@@ -1,4 +1,7 @@
 let position = 0;
+let bulletSpawn = 0;
+let bulletBotom = 0;
+let bulletSpeed = 20;
 function positionStart(){
   position = $("#player1").offset().left;
 }
@@ -28,12 +31,51 @@ function moveRight() {
     $("#player1").css("left", position + "px")
 }
 
+function shot() {
+  bulletSpawn = 0;
+  if(selectedCosmolet == 0){
+    bulletSpawn = -40;
+    bulletSpeed = 20;
+    bulletBotom = 100;
+    playShot1()
+    for (let i = 0; i < 3; i++){
+    bulletSpawn += 50;
+    let bullet = new Bullet();
+    bullets.push(bullet);
+    bullet.move();
+    }
+  }else if(selectedCosmolet == 1){
+    bulletSpawn = -60;
+    bulletSpeed = 40;
+    bulletBotom = 100;
+    playShot()
+    for (let i = 0; i < 2; i++){
+    bulletSpawn += 80;
+    let bullet = new Bullet();
+    bullets.push(bullet);
+    bullet.move();
+    }
+  }else if(selectedCosmolet == 2){
+    bulletSpawn = 60;
+    bulletSpeed = 20;
+    bulletBotom = 180;
+    playShot2()
+    for (let i = 0; i < 4; i++){
+    let bullet = new Bullet();
+    bullets.push(bullet);
+    bullet.move();
+    }
+  }
+
+  
+}
+
 let bullets = [];
 
 function Bullet() {
     this.element = $("<div>").addClass("bullet");
-    this.element.css("left", position + 60 + "px");
-    this.element.css("bottom", "180px");
+    this.element.css("left", position + bulletSpawn + "px");
+    this.element.css("bottom", bulletBotom + "px");
     $("#targetDiv").append(this.element);
     
     this.move = function() {
@@ -47,17 +89,9 @@ function Bullet() {
                 bullet.element.remove();
                 bullets.splice(bullets.indexOf(bullet), 1);
             }
-            bullet.element.offset({ top: bullet.element.offset().top - 20 });
+            bullet.element.offset({ top: bullet.element.offset().top - bulletSpeed });
         }, 100);
     };
-}
-
-function shot() {
-    playShot()
-    let bullet = new Bullet();
-    bullets.push(bullet);
-    bullet.move();
-    
 }
 
 function isHit(bullet) {
@@ -79,10 +113,48 @@ function isHit(bullet) {
   
           if (hp === 0) {
             playBoom()
-            enemy.addClass("enemy-boom");
+            score += 1;
+            if (score % 10 === 0 && score !== 0) {
+              $(".bonus").html("Speed +1")
+              speedPlus += 1;
+              setTimeout(function() {
+                $(".bonus").html("")
+              }, 2000);
+            };
+            $(".score").html(score);
+            let BoomRand = random(0, 2)
+            enemy.addClass("enemy-boom")
+              if(BoomRand == 0){enemy.css("background-image", "url('../images/boom.gif')");
+              }else if (BoomRand == 1){enemy.css("background-image", "url('../images/boom1.gif')");
+              }else if (BoomRand == 2){enemy.css("background-image", "url('../images/boom2.gif')");}
             enemy.removeClass("enemy");
-            createEnemy();
+            let spawnEnemy = random(1, 3)
+            if(spawnEnemy == 1){
+              switch (selectedLevel) {
+                case 0:
+                  hp = 100;
+                  break;
+                case 1:
+                  hp = 300;
+                  break;
+                case 2:
+                  hp = 500;
+                  break;
+              }
+            }else if(enemies.length > 7){
+              hp = 100;
+            }else if(enemies.length > 0){
+              for(let i = 0; (spawnEnemy - 1) >= i; i++){
+                createEnemy();
+              }
+            }else if(enemies.length <= 0){
+              createEnemy();
+            }
+
+            
             createAsteroid();
+            createBoomAll();
+            createHeal();
   
             setTimeout(function () {
               enemy.remove();
@@ -104,7 +176,20 @@ function isHit(bullet) {
         ) {
           bullet.element.remove();
           playBoom()
-          currentAsteroid.addClass("enemy-boom");
+          score += 1;
+          if (score % 10 === 0 && score !== 0) {
+            $(".bonus").html("Speed +1")
+            speedPlus += 1;
+            setTimeout(function() {
+              $(".bonus").html("")
+            }, 2000);
+          };
+          $(".score").html(score);
+          let BoomRand = random(0, 2)
+          currentAsteroid.addClass("enemy-boom")
+              if(BoomRand == 0){currentAsteroid.css("background-image", "url('../images/boom.gif')");
+              }else if (BoomRand == 1){currentAsteroid.css("background-image", "url('../images/boom1.gif')");
+              }else if (BoomRand == 2){currentAsteroid.css("background-image", "url('../images/boom2.gif')");}
           asteroidImage.remove();
           currentAsteroid.removeClass("asteroid");
   
@@ -144,6 +229,8 @@ function EndGame(){
 
   let asteroidElements = $('.asteroid').toArray();
   let enemies = $('.enemy').toArray();
+  let heals = $('.heal').toArray();
+  let boomAlls = $('.boomAll').toArray();
 
 
   for (let i = 0; i < enemies.length; i++) {
@@ -154,6 +241,16 @@ function EndGame(){
   for (let i = 0; i < asteroidElements.length; i++) {
     let currentAsteroid = $(asteroidElements[i]);
     currentAsteroid.remove();
+  }
+
+  for (let i = 0; i < heals.length; i++) {
+    let currentHeal = $(heals[i]);
+    currentHeal.remove();
+  }
+
+  for (let i = 0; i < boomAlls.length; i++) {
+    let currentBoomAll = $(boomAlls[i]);
+    currentBoomAll.remove();
   }
 }
 

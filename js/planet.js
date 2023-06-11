@@ -21,5 +21,5 @@ function createPlanet() {
     }, 100);
   }
 
-  setInterval(createPlanet(), 5000);
+  setInterval(createPlanet(), 2000);
   
