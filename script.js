@@ -19,12 +19,12 @@ $(document).on("keydown", function(event) {
 });
 
 function moveLeft() {
-    position -= 20;
+    position -= 40;
     $("#player1").css("left", position +"px")
 }
 
 function moveRight() {
-    position += 20;
+    position += 40;
     $("#player1").css("left", position + "px")
 }
 
@@ -47,12 +47,13 @@ function Bullet() {
                 bullet.element.remove();
                 bullets.splice(bullets.indexOf(bullet), 1);
             }
-            bullet.element.offset({ top: bullet.element.offset().top - 10 });
+            bullet.element.offset({ top: bullet.element.offset().top - 20 });
         }, 100);
     };
 }
 
 function shot() {
+    playShot()
     let bullet = new Bullet();
     bullets.push(bullet);
     bullet.move();
@@ -77,6 +78,7 @@ function isHit(bullet) {
           bullet.element.remove();
   
           if (hp === 0) {
+            playBoom()
             enemy.addClass("enemy-boom");
             enemy.removeClass("enemy");
             createEnemy();
@@ -93,6 +95,7 @@ function isHit(bullet) {
       for (let i = 0; i < asteroidElements.length; i++) {
         let currentAsteroid = $(asteroidElements[i]);
         let asteroidImage = currentAsteroid.find(".asteroidimg");
+        let planetImage = currentAsteroid.find(".planetimg");
   
         if (
           bullet.element.offset().top > currentAsteroid.offset().top &&
@@ -101,8 +104,10 @@ function isHit(bullet) {
           bullet.element.offset().left < currentAsteroid.offset().left + currentAsteroid.width()
         ) {
           bullet.element.remove();
+          playBoom()
           currentAsteroid.addClass("enemy-boom");
           asteroidImage.remove();
+          planetImage.remove();
           currentAsteroid.removeClass("asteroid");
   
           setTimeout(function () {
@@ -115,6 +120,19 @@ function isHit(bullet) {
   }
   
   
+function hpPlayerLive(){
+    if(hpPlayer == 300){
+      $(".liveImg1").attr("src", "./images/heart.png")
+      $(".liveImg2").attr("src", "./images/heart.png")
+      $(".liveImg3").attr("src", "./images/heart.png")
+    }else if(hpPlayer == 200){
+      $(".liveImg3").attr("src", "./images/heart off.png")
+    }else if(hpPlayer == 100){
+      $(".liveImg2").attr("src", "./images/heart off.png")
+    }else if(hpPlayer == 0){
+      $(".liveImg1").attr("src", "./images/heart off.png")
+    }
+  }
 
   
 function EndGame(){

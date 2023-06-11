@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <audio src="./audio/Space Echo.mp3" autoplay loop id="bg-audio"></audio>
+    <audio src="./audio/boom.wav" id="audio-boom"></audio>
+    <audio src="./audio/shot.wav" id="audio-shot"></audio>
+
     <div id='stars'></div>
     <div id='stars2'></div>
     <div id='stars3'></div>
 
     <div id="app">
+
+    <div style="display: flex;"><button class="sound soundMusic"><img src="/images/sound on.png" alt="soundMusic" id="soundMusicImg"></button><h3> Sound music</h3><br></div>
+    <div style="display: flex;"><button class="sound soundEffect"><img src="/images/sound on.png" alt="soundEffect" id="soundEffectImg"></button><h3> Sound effect</h3></div>
+
+    <div class="live">
+        <img src="./images/heart.png" class="liveImg liveImg1" alt="vive">
+        <img src="./images/heart.png" class="liveImg liveImg2" alt="vive">
+        <img src="./images/heart.png" class="liveImg liveImg3" alt="vive">
+    </div>
 
     <div class="startScreen">
         <h1>Space</h1>
@@ -39,7 +52,7 @@
         <div id="targetDiv"></div>
     </div>
 
-
+    <script src="./js/audio.js"></script>
     <script src="./js/start.js"></script>
     <script src="./script.js"></script> 
     <script src="./js/enemy.js"></script>

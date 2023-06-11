@@ -12,6 +12,29 @@ html {
     background: radial-gradient(ellipse, #1b2735 0%, #090a0f 100%);
 }
 
+.sound{
+    background-color: white;
+    border-radius: 60px;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+.sound img{
+    height: 30px;
+    width: 30px;
+}
+
+.live{
+    position: absolute;
+    top: 50px;
+    left: calc(100% - 300px);
+}
+
+.liveImg{
+    width: 50px;
+    height: 50px;
+}
+
 .startScreen{
     margin: 100px 600px;
 }
@@ -69,7 +92,7 @@ html {
     position: absolute;
     bottom: 60px;
     left: calc(50% - 75px);
-    transition: 0.2s;
+    transition: 0.1s;
     display: flex;
 }
 
@@ -86,9 +109,16 @@ html {
     height: 65px;
     position: absolute;   
 }
-.asteroid img{
+.asteroidimg{
     width: 100px;
     height: 65px;
+    transition: 0.2s;
+    animation: spin 2s linear infinite;
+}
+
+.planetimg{
+    width: 100px;
+    height: 100px;
     transition: 0.2s;
     animation: spin 2s linear infinite;
 }

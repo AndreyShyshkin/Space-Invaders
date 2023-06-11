@@ -5,15 +5,15 @@ function createEnemy(){
     switch (selectedLevel) {
         case 0:
           hp = 100;
-          speed = 1;
+          speed = 2;
           break;
         case 1:
           hp = 300;
-          speed = 3;
+          speed = 5;
           break;
         case 2:
           hp = 500;
-          speed = 5;
+          speed = 7;
           break;
       }
     let positionLeft = random(150, ($(window).width() - 150));
@@ -30,12 +30,20 @@ function moveEnemy(enemy){
         if(enemy.position().top > $(window).height()){
             clearInterval(timerID);
             enemy.remove();
-            EndGame();
+            hpPlayer = hpPlayer - 100;
+            hpPlayerLive()
+            if(hpPlayer <= 0){
+                EndGame();
+            }
     }
     if(enemy.position().top > $("#player1").position().top - 50 && enemy.position().top < $("#player1").position().top + 50 && enemy.position().left > $("#player1").position().left - 50 && enemy.position().left < $("#player1").position().left + 50){
         clearInterval(timerID);
         enemy.remove();
-        EndGame();
+        hpPlayer = hpPlayer - 100;
+        hpPlayerLive() 
+        if(hpPlayer <= 0){
+            EndGame();
+        }
     }
 }, 100);
 }

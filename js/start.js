@@ -1,7 +1,9 @@
 let selectedLevel = null;
 let selectedCosmolet = null;
+let hpPlayer = 0;
 
 $(document).ready(function() {
+
     $('input[name="level"]').change(function() {
       selectedLevel = $('input[name="level"]:checked').index('input[name="level"]');;
     });
@@ -23,7 +25,7 @@ $(document).ready(function() {
 });
 
 $(".start").on("click", function(){
-    if(selectedLevel === null || selectedCosmolet === null){
+    if(selectedLevel == null || selectedCosmolet == null){
         alert("Выберите уровень и комплеель");
     }else {
         startGame();
@@ -33,7 +35,9 @@ $(".start").on("click", function(){
 
 function startGame(){
     $(".startScreen").css("display", "none");
-    $("#player1").css("display", "block");
+    $("#player1").css("display", "flex");
+    hpPlayer = 300;
+    hpPlayerLive()
     positionStart();
 
 
