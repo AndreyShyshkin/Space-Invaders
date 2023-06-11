@@ -2,7 +2,7 @@ function createBoomAll() {
       let spawn = random(1, 50);
       if (spawn == 1) {
         let positionLeft = random(150, ($(window).width() - 150));
-        let BoomAll = $('<div class="boomAll"><img class="BoomAllimg" src="./images/boomALL.png" alt="BoomAllimg"></div>');
+        let BoomAll = $('<div class="boomAll"><img class="BoomAllimg" src="images/boomALL.png" alt="BoomAllimg"></div>');
         BoomAll.css('left', positionLeft + 'px');
         BoomAll.css('top', '-150px');
         $("#app").append(BoomAll);
@@ -64,7 +64,7 @@ function createBoomAll() {
         let spawn = random(1, 50);
         if (spawn == 1) {
           let positionLeft = random(150, ($(window).width() - 150));
-          let heal = $('<div class="heal"><img class="healimg" src="./images/heal.png" alt="healimg"></div>');
+          let heal = $('<div class="heal"><img class="healimg" src="images/heal.png" alt="healimg"></div>');
           heal.css('left', positionLeft + 'px');
           heal.css('top', '-150px');
           $("#app").append(heal);
@@ -89,9 +89,9 @@ function createBoomAll() {
           clearInterval(timerID);
             heal.remove();
             hpPlayer = 300;
-            $(".liveImg1").attr("src", "./images/heart.png")
-            $(".liveImg2").attr("src", "./images/heart.png")
-            $(".liveImg3").attr("src", "./images/heart.png")
+            $(".liveImg1").attr("src", "images/heart.png")
+            $(".liveImg2").attr("src", "images/heart.png")
+            $(".liveImg3").attr("src", "images/heart.png")
               
         }
         }, 100);

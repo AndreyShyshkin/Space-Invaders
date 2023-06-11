@@ -5,7 +5,7 @@ function createPlanet() {
       planet = $('<div class="planet"></div>');
       planet.css('left', positionLeft + 'px');
       planet.css('top', '-150px');
-      planet.css('background-image', 'url("./images/planet' + random(1, 3) + '.png")');
+      planet.css('background-image', 'url("images/planet' + random(1, 3) + '.png")');
       $("#app").append(planet);
       movePlanet(planet);
   }

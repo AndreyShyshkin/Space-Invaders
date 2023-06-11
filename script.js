@@ -124,9 +124,9 @@ function isHit(bullet) {
             $(".score").html(score);
             let BoomRand = random(0, 2)
             enemy.addClass("enemy-boom")
-              if(BoomRand == 0){enemy.css("background-image", "url('../images/boom.gif')");
-              }else if (BoomRand == 1){enemy.css("background-image", "url('../images/boom1.gif')");
-              }else if (BoomRand == 2){enemy.css("background-image", "url('../images/boom2.gif')");}
+              if(BoomRand == 0){enemy.css("background-image", "url('images/boom.gif')");
+              }else if (BoomRand == 1){enemy.css("background-image", "url('images/boom1.gif')");
+              }else if (BoomRand == 2){enemy.css("background-image", "url('images/boom2.gif')");}
             enemy.removeClass("enemy");
             let spawnEnemy = random(1, 3)
             if(spawnEnemy == 1){
@@ -187,9 +187,9 @@ function isHit(bullet) {
           $(".score").html(score);
           let BoomRand = random(0, 2)
           currentAsteroid.addClass("enemy-boom")
-              if(BoomRand == 0){currentAsteroid.css("background-image", "url('../images/boom.gif')");
-              }else if (BoomRand == 1){currentAsteroid.css("background-image", "url('../images/boom1.gif')");
-              }else if (BoomRand == 2){currentAsteroid.css("background-image", "url('../images/boom2.gif')");}
+              if(BoomRand == 0){currentAsteroid.css("background-image", "url('images/boom.gif')");
+              }else if (BoomRand == 1){currentAsteroid.css("background-image", "url('images/boom1.gif')");
+              }else if (BoomRand == 2){currentAsteroid.css("background-image", "url('images/boom2.gif')");}
           asteroidImage.remove();
           currentAsteroid.removeClass("asteroid");
   
@@ -205,15 +205,15 @@ function isHit(bullet) {
   
 function hpPlayerLive(){
     if(hpPlayer == 300){
-      $(".liveImg1").attr("src", "./images/heart.png")
-      $(".liveImg2").attr("src", "./images/heart.png")
-      $(".liveImg3").attr("src", "./images/heart.png")
+      $(".liveImg1").attr("src", "images/heart.png")
+      $(".liveImg2").attr("src", "images/heart.png")
+      $(".liveImg3").attr("src", "images/heart.png")
     }else if(hpPlayer == 200){
-      $(".liveImg3").attr("src", "./images/heart off.png")
+      $(".liveImg3").attr("src", "images/heart off.png")
     }else if(hpPlayer == 100){
-      $(".liveImg2").attr("src", "./images/heart off.png")
+      $(".liveImg2").attr("src", "images/heart off.png")
     }else if(hpPlayer == 0){
-      $(".liveImg1").attr("src", "./images/heart off.png")
+      $(".liveImg1").attr("src", "images/heart off.png")
     }
   }
 
