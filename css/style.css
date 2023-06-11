@@ -116,16 +116,13 @@ html {
     animation: spin 2s linear infinite;
 }
 
-.planetimg{
-    width: 100px;
-    height: 100px;
+.planet{
+    width: 500px;
+    height: 500px;
+    position: absolute;  
     transition: 0.2s;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    z-index: -9999; 
+    background-size: contain;
 }
 
 .enemy-boom{

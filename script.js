@@ -95,7 +95,6 @@ function isHit(bullet) {
       for (let i = 0; i < asteroidElements.length; i++) {
         let currentAsteroid = $(asteroidElements[i]);
         let asteroidImage = currentAsteroid.find(".asteroidimg");
-        let planetImage = currentAsteroid.find(".planetimg");
   
         if (
           bullet.element.offset().top > currentAsteroid.offset().top &&
@@ -107,7 +106,6 @@ function isHit(bullet) {
           playBoom()
           currentAsteroid.addClass("enemy-boom");
           asteroidImage.remove();
-          planetImage.remove();
           currentAsteroid.removeClass("asteroid");
   
           setTimeout(function () {

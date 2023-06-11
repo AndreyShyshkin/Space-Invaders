@@ -4,6 +4,8 @@ let hpPlayer = 0;
 
 $(document).ready(function() {
 
+
+
     $('input[name="level"]').change(function() {
       selectedLevel = $('input[name="level"]:checked').index('input[name="level"]');;
     });
@@ -37,18 +39,15 @@ function startGame(){
     $(".startScreen").css("display", "none");
     $("#player1").css("display", "flex");
     hpPlayer = 300;
+
     hpPlayerLive()
     positionStart();
 
+    for(let i = 0; i < random(2, 5); i++){
+        createEnemy();
 
-    createEnemy();
-    createEnemy();
-    createEnemy();
-
-    createAsteroid()
-    createAsteroid()
-    createAsteroid()
-    createAsteroid()
+        createAsteroid()
+    }
 }
 
 
