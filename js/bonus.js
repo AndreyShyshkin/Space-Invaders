@@ -30,7 +30,11 @@ function createBoomAll() {
           for (let i = 0; i < enemies.length; i++) {
             let enemy = $(enemies[i]);
             playBoom()
-            enemy.addClass("enemy-boom");
+            let BoomRand = random(0, 2)
+            enemy.addClass("enemy-boom")
+              if(BoomRand == 0){enemy.css("background-image", "url('images/boom.gif')");
+              }else if (BoomRand == 1){enemy.css("background-image", "url('images/boom1.gif')");
+              }else if (BoomRand == 2){enemy.css("background-image", "url('images/boom2.gif')");}
             enemy.removeClass("enemy");
             createEnemy();
             createAsteroid();
@@ -46,7 +50,11 @@ function createBoomAll() {
             let currentAsteroid = $(asteroidElements[i]);
             let asteroidImage = currentAsteroid.find(".asteroidimg");
             playBoom()
-            currentAsteroid.addClass("enemy-boom");
+            let BoomRand = random(0, 2)
+            currentAsteroid.addClass("enemy-boom")
+              if(BoomRand == 0){currentAsteroid.css("background-image", "url('images/boom.gif')");
+              }else if (BoomRand == 1){currentAsteroid.css("background-image", "url('images/boom1.gif')");
+              }else if (BoomRand == 2){currentAsteroid.css("background-image", "url('images/boom2.gif')");}
             asteroidImage.remove();
             currentAsteroid.removeClass("asteroid");
             score += 1;
