@@ -21,17 +21,17 @@ $(document).on("keydown", function(event) {
     }
 });
 
-function moveLeft() {
+async function moveLeft() {
     position -= 40;
     $("#player1").css("left", position +"px")
 }
 
-function moveRight() {
+async function moveRight() {
     position += 40;
     $("#player1").css("left", position + "px")
 }
 
-function shot() {
+async function shot() {
   bulletSpawn = 0;
   if(selectedCosmolet == 0){
     bulletSpawn = -40;
